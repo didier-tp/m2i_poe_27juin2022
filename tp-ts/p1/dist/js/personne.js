@@ -20,17 +20,28 @@ class Personne {
 }
 //Employe heritant de Personne
 class Employe extends Personne {
-    constructor(prenom = "?", nom = "?", age = 0) {
+    /*
+    fonction : string ="?";
+    salaire : number = 0;
+
+    constructor(prenom : string = "?",
+                nom : string = "?",
+                age : number = 0){
+        super(prenom,nom,age);
+    }
+    */
+    constructor(prenom = "?", nom = "?", age = 0, fonction = "?", salaire = 0) {
         super(prenom, nom, age);
-        this.fonction = "?";
-        this.salaire = 0;
+        this.fonction = fonction;
+        this.salaire = salaire;
     }
 }
 let e1;
-e1 = new Employe("axelle", "Aire", 25);
+e1 = new Employe("axelle", "Aire", 25); //ou bien e1 = new Employe("axelle" , "Aire" , 25 , "developpeur" , 2500);
 e1.fonction = "developpeur";
 e1.salaire = 2500;
 console.log("e1=" + JSON.stringify(e1));
+//affiche e1={"prenom":"axelle","nom":"Aire","_age":25,"fonction":"developpeur","salaire":2500}
 let p1;
 p1 = new Personne("jean", "Bon", 45);
 p1.incrementerAge(); //45ans vers 46ans

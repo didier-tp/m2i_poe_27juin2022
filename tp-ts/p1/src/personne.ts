@@ -23,6 +23,7 @@ class Personne{
 
 //Employe heritant de Personne
 class Employe extends Personne{
+    /*
     fonction : string ="?";
     salaire : number = 0;
 
@@ -31,13 +32,23 @@ class Employe extends Personne{
                 age : number = 0){
         super(prenom,nom,age);
     }
+    */
+
+    constructor(prenom : string = "?",
+                nom : string = "?",
+                age : number = 0,
+                public fonction : string = "?",
+                public salaire :number = 0){
+        super(prenom,nom,age);
+    }
 }
 
 let e1 : Employe;
-e1 = new Employe("axelle" , "Aire" , 25);
+e1 = new Employe("axelle" , "Aire" , 25); //ou bien e1 = new Employe("axelle" , "Aire" , 25 , "developpeur" , 2500);
 e1.fonction = "developpeur";
 e1.salaire = 2500;
 console.log("e1="+ JSON.stringify(e1));
+//affiche e1={"prenom":"axelle","nom":"Aire","_age":25,"fonction":"developpeur","salaire":2500}
 
 
 
