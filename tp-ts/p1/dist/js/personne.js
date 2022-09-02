@@ -18,6 +18,19 @@ class Personne {
         this.age++;
     }
 }
+//Employe heritant de Personne
+class Employe extends Personne {
+    constructor(prenom = "?", nom = "?", age = 0) {
+        super(prenom, nom, age);
+        this.fonction = "?";
+        this.salaire = 0;
+    }
+}
+let e1;
+e1 = new Employe("axelle", "Aire", 25);
+e1.fonction = "developpeur";
+e1.salaire = 2500;
+console.log("e1=" + JSON.stringify(e1));
 let p1;
 p1 = new Personne("jean", "Bon", 45);
 p1.incrementerAge(); //45ans vers 46ans
