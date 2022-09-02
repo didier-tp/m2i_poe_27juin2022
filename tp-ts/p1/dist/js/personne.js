@@ -1,9 +1,9 @@
 "use strict";
 class Personne {
-    constructor(prenom = "?", nom = "?", age = 0) {
+    constructor(prenom = "?", nom = "?", _age = 0) {
         this.prenom = prenom;
         this.nom = nom;
-        this._age = age;
+        this._age = _age;
     }
     get age() {
         return this._age;
