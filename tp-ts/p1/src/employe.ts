@@ -1,5 +1,6 @@
 import { Personne } from "./personne";
 
+
 //Employe heritant de Personne
 export class Employe extends Personne{
     /*

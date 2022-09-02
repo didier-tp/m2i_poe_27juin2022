@@ -21,3 +21,8 @@ class Personne {
     }
 }
 exports.Personne = Personne;
+/*export*/ function afficherPersonne(p) {
+    console.log(JSON.stringify(p));
+}
+//appel interne (depuis le meme fichier) d'une fonction pas exportée possible
+//afficherPersonne(new Personne("jean","Bon",30));

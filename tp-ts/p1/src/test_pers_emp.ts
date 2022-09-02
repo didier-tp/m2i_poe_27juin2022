@@ -1,5 +1,6 @@
-import { Personne} from "./personne";
 import { Employe } from "./employe";
+//import { Personne , afficherPersonne } from "./personne"; //possible que si afficherPersonne est exportée
+import { Personne } from "./personne";
 
 let e1 : Employe;
 e1 = new Employe("axelle" , "Aire" , 25); //ou bien e1 = new Employe("axelle" , "Aire" , 25 , "developpeur" , 2500);
@@ -21,6 +22,8 @@ try{
 }
 p1.age = 35;// ça appelle automatiquement set age(35)
 console.log("p1="+ JSON.stringify(p1));
+
+//afficherPersonne(p1);// appelable que si exporté et importé
 
 let p2 = new Personne(); //avec valeurs par défaut "?" , "?" , 0
 p2.incrementerAge(); //0an vers 1an

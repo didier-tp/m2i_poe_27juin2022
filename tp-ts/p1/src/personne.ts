@@ -20,3 +20,10 @@ export class Personne{
     this.age++;
    }
 }
+
+/*export*/ function afficherPersonne(p : Personne){
+    console.log(JSON.stringify(p));
+}
+
+//appel interne (depuis le meme fichier) d'une fonction pas exportée possible
+//afficherPersonne(new Personne("jean","Bon",30));

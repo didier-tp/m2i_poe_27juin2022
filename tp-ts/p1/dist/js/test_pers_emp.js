@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const personne_1 = require("./personne");
 const employe_1 = require("./employe");
+//import { Personne , afficherPersonne } from "./personne"; //possible que si afficherPersonne est exportée
+const personne_1 = require("./personne");
 let e1;
 e1 = new employe_1.Employe("axelle", "Aire", 25); //ou bien e1 = new Employe("axelle" , "Aire" , 25 , "developpeur" , 2500);
 e1.fonction = "developpeur";
@@ -20,6 +21,7 @@ catch (ex) {
 }
 p1.age = 35; // ça appelle automatiquement set age(35)
 console.log("p1=" + JSON.stringify(p1));
+//afficherPersonne(p1);// appelable que si exporté et importé
 let p2 = new personne_1.Personne(); //avec valeurs par défaut "?" , "?" , 0
 p2.incrementerAge(); //0an vers 1an
 console.log("age de p2=" + p2.age);
