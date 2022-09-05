@@ -27,3 +27,9 @@ p2.incrementerAge(); //0an vers 1an
 console.log("age de p2=" + p2.age);
 p2.nom = "Dupond";
 console.log("p2=" + JSON.stringify(p2));
+let objP = { prenom: "didier", nom: "Defrance", adresse: "25 rue Xy" };
+function greeterPerson(p) {
+    return "Hello " + p.prenom + " " + p.nom;
+}
+console.log(greeterPerson(objP));
+//# sourceMappingURL=test_pers_emp.js.map

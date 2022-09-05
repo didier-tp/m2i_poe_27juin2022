@@ -1,3 +1,9 @@
+export interface IPerson {
+    prenom : string;
+    nom : string;
+    adresse? : string;
+}
+
 export class Personne{
 
    constructor(public prenom : string ="?" ,

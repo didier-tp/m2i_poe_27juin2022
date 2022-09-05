@@ -19,3 +19,4 @@ let s2;
 s2 = "abc";
 s2 = null;
 console.log("s2=" + s2);
+//# sourceMappingURL=f2.js.map

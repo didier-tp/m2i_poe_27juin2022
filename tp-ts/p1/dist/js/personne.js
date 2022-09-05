@@ -26,3 +26,4 @@ exports.Personne = Personne;
 }
 //appel interne (depuis le meme fichier) d'une fonction pas exportée possible
 //afficherPersonne(new Personne("jean","Bon",30));
+//# sourceMappingURL=personne.js.map

@@ -21,3 +21,4 @@ class Employe extends personne_1.Personne {
     }
 }
 exports.Employe = Employe;
+//# sourceMappingURL=employe.js.map
