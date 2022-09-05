@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const produit_1 = require("./produit");
 const express_1 = __importDefault(require("express")); //nécessite npm install -s express (pour la partie js)
+const prod_api_1 = require("./prod-api");
 //nécessite également le complément pour typescript
 //npm install --save-dev @types/express
 //la syntaxe import ... from ... est acceptée en javascript par nodeJs
@@ -13,27 +13,17 @@ const express_1 = __importDefault(require("express")); //nécessite npm install 
 //OU BIEN
 // pas de "type" : "module" dans  package.json
 // et "module": "CommonJS" dans le fichier tsconfig.json
-let tabProduits = [
-    new produit_1.Produit(1, "cahier", 3.6),
-    new produit_1.Produit(2, "stylo", 2.6),
-    new produit_1.Produit(3, "gomme", 1.6),
-    new produit_1.Produit(4, "classeur", 6.6)
-];
 var app = (0, express_1.default)();
 app.get('/', function (req, res, next) {
     res.setHeader('Content-Type', 'text/html');
     res.write("<html> <body>");
     res.write('<p>welcome tpNode</p>');
-    res.write('<a href="/api-prod/produit">liste produits JSON</a>');
+    res.write('<a href="/api-prod/init">(re)initDatabase</a><br/>');
+    res.write('<a href="/api-prod/produit">liste produits JSON</a><br/>');
     res.write("</body></html>");
     res.end();
 });
-// http://localhost:8282/api-prod/produit    
-app.get('/api-prod/produit', function (req, res, next) {
-    res.send(tabProduits); //res.send() permet de renvoyer un résultat 
-    //qui est un objet javascript ou un tableau qui sera automatiquement converti en JSON
-    //resultat dans navigateur: [{"id":1,"label":"cahier","prix":3.6},{"id":2,"label":"stylo","prix":2.6},{"id":3,"label":"gomme","prix":1.6},{"id":4,"label":"classeur","prix":6.6}]
-});
+app.use(prod_api_1.prodApiRouter); //tous les .get , .post du fichier prod-api.ts
 app.listen(8282, function () {
     console.log("http://localhost:8282");
 });

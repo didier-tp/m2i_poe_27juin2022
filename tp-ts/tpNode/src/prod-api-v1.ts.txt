@@ -1,0 +1,19 @@
+import { Produit } from "./produit";
+import express from "express" ;
+
+
+let tabProduits = [  
+    new Produit(1,"cahier",3.6) ,
+    new Produit(2 ,"stylo" , 2.6),
+    new Produit(3,"gomme",1.6) ,
+    new Produit(4 ,"classeur" , 6.6)
+]
+
+export const prodApiRouter = express.Router();
+// http://localhost:8282/api-prod/produit    
+prodApiRouter.get('/api-prod/produit', function(req : express.Request, res : express.Response , next : express.NextFunction) {   
+    res.send(tabProduits); //res.send() permet de renvoyer un résultat 
+    //qui est un objet javascript ou un tableau qui sera automatiquement converti en JSON
+
+    //resultat dans navigateur: [{"id":1,"label":"cahier","prix":3.6},{"id":2,"label":"stylo","prix":2.6},{"id":3,"label":"gomme","prix":1.6},{"id":4,"label":"classeur","prix":6.6}]
+});
