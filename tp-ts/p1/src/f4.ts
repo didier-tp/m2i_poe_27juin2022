@@ -24,3 +24,24 @@ enchainerCalculEtAffichage(5,6, (x,y) => {return x+y;})
 */
 enchainerCalculEtAffichage(5,6, (x,y) =>  x+y );
 enchainerCalculEtAffichage(5,6, (x,y) =>  x*y );
+
+// A faire en TP
+
+//1. préparer une variante de la fonction enchainerCalculEtAffichage
+//avec une fonction de calcul qui a un seul paramètre
+
+function enchainerCalculSimpleEtAffichage(x:number,
+                                        fonctionDeCalcul : (x:number) => number ){
+let res :number = fonctionDeCalcul(x);
+console.log("res="+res);
+}
+
+//2. l'appeler avec a) un calcul de type x au carre
+//                  b) un calcul de type racine carree
+
+//enchainerCalculSimpleEtAffichage(9 , (x:number) => { let res = Math.sqrt(x); return res;})
+//enchainerCalculSimpleEtAffichage(9 , (x) => { return Math.sqrt(x);})
+enchainerCalculSimpleEtAffichage(9 , (x) =>  Math.sqrt(x) )
+//enchainerCalculSimpleEtAffichage(9 , x =>  Math.sqrt(x) )
+
+enchainerCalculSimpleEtAffichage(9 , (x) =>  x*x )
