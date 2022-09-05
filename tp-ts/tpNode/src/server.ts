@@ -1,15 +1,17 @@
+import { Produit } from "./produit";
+
 import express from "express" ; //nécessite npm install -s express (pour la partie js)
                             //nécessite également le complément pour typescript
                             //npm install --save-dev @types/express
 //la syntaxe import ... from ... est acceptée en javascript par nodeJs
 //si on ajoute "type" : "module" dans dans package.json (sinon ancienne syntaxe var express= require("express"))
+//et avec "module": "ES2015" dans le fichier tsconfig.json
 
-class Produit{
-    constructor(public id : number = 0,
-                public label : string = "?",
-                public prix : number = 0.0){
-    }
-}
+//OU BIEN
+// pas de "type" : "module" dans  package.json
+// et "module": "CommonJS" dans le fichier tsconfig.json
+
+
 
 let tabProduits = [  
     new Produit(1,"cahier",3.6) ,

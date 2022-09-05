@@ -1,22 +1,25 @@
-import express from "express"; //nécessite npm install -s express (pour la partie js)
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const produit_1 = require("./produit");
+const express_1 = __importDefault(require("express")); //nécessite npm install -s express (pour la partie js)
 //nécessite également le complément pour typescript
 //npm install --save-dev @types/express
 //la syntaxe import ... from ... est acceptée en javascript par nodeJs
 //si on ajoute "type" : "module" dans dans package.json (sinon ancienne syntaxe var express= require("express"))
-class Produit {
-    constructor(id = 0, label = "?", prix = 0.0) {
-        this.id = id;
-        this.label = label;
-        this.prix = prix;
-    }
-}
+//et avec "module": "ES2015" dans le fichier tsconfig.json
+//OU BIEN
+// pas de "type" : "module" dans  package.json
+// et "module": "CommonJS" dans le fichier tsconfig.json
 let tabProduits = [
-    new Produit(1, "cahier", 3.6),
-    new Produit(2, "stylo", 2.6),
-    new Produit(3, "gomme", 1.6),
-    new Produit(4, "classeur", 6.6)
+    new produit_1.Produit(1, "cahier", 3.6),
+    new produit_1.Produit(2, "stylo", 2.6),
+    new produit_1.Produit(3, "gomme", 1.6),
+    new produit_1.Produit(4, "classeur", 6.6)
 ];
-var app = express();
+var app = (0, express_1.default)();
 app.get('/', function (req, res, next) {
     res.setHeader('Content-Type', 'text/html');
     res.write("<html> <body>");
