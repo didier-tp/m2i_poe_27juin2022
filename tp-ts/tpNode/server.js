@@ -1,4 +1,6 @@
 import express from "express" ; //nécessite npm install -s express
+//la syntaxe import ... from ... est acceptée en javascript par nodeJs
+//si on ajoute "type" : "module" dans dans package.json (sinon ancienne syntaxe var express= require("express"))
 
 var app = express();
 
