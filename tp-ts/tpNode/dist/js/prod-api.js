@@ -17,6 +17,17 @@ exports.prodApiRouter.get('/api-prod/produit', function (req, res, next) {
             res.send(rowsOfProduit);
     });
 });
+// http://localhost:8282/api-prod/produit/1 ou ...   
+exports.prodApiRouter.get('/api-prod/produit/:id', function (req, res, next) {
+    let idProd = Number(req.params.id);
+    prod_dao_1.default.get_produit_by_id(idProd, (err, produit) => {
+        if (err != null) {
+            res.status(500).send({ err: err });
+        }
+        else
+            res.send(produit);
+    });
+});
 exports.prodApiRouter.get('/api-prod/init', function (req, res, next) {
     prod_dao_1.default.init_produit_db();
     res.send({ message: "base reinitialisee avec table produit" });

@@ -14,12 +14,34 @@ const prod_api_1 = require("./prod-api");
 // pas de "type" : "module" dans  package.json
 // et "module": "CommonJS" dans le fichier tsconfig.json
 var app = (0, express_1.default)();
+/*
+// CORS enabled with express/node-js :
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    //ou avec "www.xyz.com" à la place de "*" en production
+
+    res.header("Access-Control-Allow-Methods",
+               "POST, GET, PUT, DELETE, OPTIONS");
+    //default: GET
+
+    res.header("Access-Control-Allow-Headers",
+               "Origin, X-Requested-With, Content-Type, Accept");
+
+    next();
+});
+*/
+//les routes en /html/... seront gérées par express par
+//de simples renvois des fichiers statiques du répertoire "./html"
+//app.use('/html', express.static(__dirname+"/html"));
+app.use('/html', express_1.default.static("html"));
 app.get('/', function (req, res, next) {
     res.setHeader('Content-Type', 'text/html');
     res.write("<html> <body>");
     res.write('<p>welcome tpNode</p>');
     res.write('<a href="/api-prod/init">(re)initDatabase</a><br/>');
     res.write('<a href="/api-prod/produit">liste produits JSON</a><br/>');
+    res.write('<a href="/api-prod/produit/1">produit 1 JSON</a><br/>');
+    res.write('<a href="/html/ajax_produits.html">produits via ajax</a><br/>');
     res.write("</body></html>");
     res.end();
 });

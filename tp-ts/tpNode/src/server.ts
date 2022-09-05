@@ -13,6 +13,27 @@ import { prodApiRouter } from "./prod-api";
 
 
 var app = express();
+/*
+// CORS enabled with express/node-js :
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    //ou avec "www.xyz.com" à la place de "*" en production
+
+    res.header("Access-Control-Allow-Methods",
+               "POST, GET, PUT, DELETE, OPTIONS"); 
+    //default: GET 
+
+    res.header("Access-Control-Allow-Headers",
+               "Origin, X-Requested-With, Content-Type, Accept");
+
+    next();
+});
+*/
+
+//les routes en /html/... seront gérées par express par
+//de simples renvois des fichiers statiques du répertoire "./html"
+//app.use('/html', express.static(__dirname+"/html"));
+app.use('/html', express.static("html"));
 
 app.get('/', function(req : express.Request, res : express.Response , next : express.NextFunction) {
     res.setHeader('Content-Type', 'text/html');
@@ -20,6 +41,8 @@ app.get('/', function(req : express.Request, res : express.Response , next : exp
     res.write('<p>welcome tpNode</p>');
     res.write('<a href="/api-prod/init">(re)initDatabase</a><br/>');
     res.write('<a href="/api-prod/produit">liste produits JSON</a><br/>');
+    res.write('<a href="/api-prod/produit/1">produit 1 JSON</a><br/>');
+    res.write('<a href="/html/ajax_produits.html">produits via ajax</a><br/>');
     res.write("</body></html>");
     res.end();
     });
