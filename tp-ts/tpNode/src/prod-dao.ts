@@ -1,6 +1,8 @@
 //DAO sur produit avec sql-lite (nécessite npm install -s sqlite3 et npm i --save-dev @types/sqlite3)
 
 import sqlite3 from 'sqlite3';
+import { Produit } from './produit';
+
 
 function withDbConnection(callbackWithDb : any){
     var db = new sqlite3.Database('mydb.db');
@@ -51,4 +53,25 @@ function get_produit_by_id(id:number, cb_with_err_or_res:any){
     }); //end of withDbConnection()
 }
 
-export default { withDbConnection , init_produit_db , get_produits_by_WhereClause , get_produit_by_id }
+function get_produit_by_id_promise(id:number) : Promise<Produit> {
+    return new Promise(
+        (resolve,reject)=>{
+            withDbConnection(function(db : sqlite3.Database) {
+                let sql = "SELECT id,label,prix FROM produit WHERE id=?";
+                db.get(sql, id, function(err, row) {
+                   if(err==null)
+                      resolve(row); //resolve pour renvoyer données quand ça se passe bien
+                    else
+                      reject(err); //reject pour renvoyer objet erreur quand ça se passe mal
+                });
+            }); //end of withDbConnection()
+        }
+    );
+}
+
+export default { withDbConnection ,
+                  init_produit_db , 
+                  get_produits_by_WhereClause , 
+                  get_produit_by_id ,
+                  get_produit_by_id_promise
+                }

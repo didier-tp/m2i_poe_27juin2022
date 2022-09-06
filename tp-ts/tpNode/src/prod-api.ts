@@ -26,7 +26,6 @@ prodApiRouter.get('/api-prod/produit/:id', function(req : express.Request, res :
             }
             else res.send(produit);
         });
-    
 });
 
 prodApiRouter.get('/api-prod/init', function(req : express.Request, res : express.Response , next : express.NextFunction) {   
