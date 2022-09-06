@@ -4,4 +4,7 @@
 <button  (click)="onCalculer('+')">+</button> &nbsp;
 <button  (click)="onCalculer('-')">-</button> &nbsp;
 <button  (click)="onCalculer('*')">*</button> <br/>
-res={{res}}
+res=<span class="enEvidence"
+       [style.font-weight]="res>0?'bold':'normal'"
+       [class.negatif]="res<0"
+          >{{res}}</span>
