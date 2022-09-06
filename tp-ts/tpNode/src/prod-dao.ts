@@ -59,7 +59,9 @@ function get_produit_by_id_promise(id:number) : Promise<Produit> {
             withDbConnection(function(db : sqlite3.Database) {
                 let sql = "SELECT id,label,prix FROM produit WHERE id=?";
                 db.get(sql, id, function(err, row) {
-                   if(err==null)
+                    //console.log("row=" + JSON.stringify(row));
+                    //console.log("err=" + JSON.stringify(err));
+                   if(err==null && row != undefined)
                       resolve(row); //resolve pour renvoyer données quand ça se passe bien
                     else
                       reject(err); //reject pour renvoyer objet erreur quand ça se passe mal
