@@ -49,5 +49,23 @@ function get_produit_by_id(id, cb_with_err_or_res) {
         });
     }); //end of withDbConnection()
 }
-exports.default = { withDbConnection, init_produit_db, get_produits_by_WhereClause, get_produit_by_id };
+function get_produit_by_id_promise(id) {
+    return new Promise((resolve, reject) => {
+        withDbConnection(function (db) {
+            let sql = "SELECT id,label,prix FROM produit WHERE id=?";
+            db.get(sql, id, function (err, row) {
+                if (err == null)
+                    resolve(row); //resolve pour renvoyer données quand ça se passe bien
+                else
+                    reject(err); //reject pour renvoyer objet erreur quand ça se passe mal
+            });
+        }); //end of withDbConnection()
+    });
+}
+exports.default = { withDbConnection,
+    init_produit_db,
+    get_produits_by_WhereClause,
+    get_produit_by_id,
+    get_produit_by_id_promise
+};
 //# sourceMappingURL=prod-dao.js.map
