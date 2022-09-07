@@ -10,6 +10,7 @@ import { CalculatriceComponent } from './basic/calculatrice/calculatrice.compone
 import { TvaComponent } from './basic/tva/tva.component';
 import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ProduitsComponent } from './produits/produits.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BasicComponent,
     CalculatriceComponent,
     TvaComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ProduitsComponent
   ],
   imports: [
     BrowserModule,
