@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produit } from '../common/produit';
+import { ProduitService } from '../common/produit.service';
 
 @Component({
   selector: 'app-produits',
@@ -13,11 +14,29 @@ export class ProduitsComponent implements OnInit {
 
 
   //tableau des produits existants et à efficher:
+  /*
+  //v1 sans appel de WS
   tabProduits :Produit[] = [
     new Produit(1 , "cahier" , 3.5),
     new Produit(2 , "stylo" , 1.5) ,
     new Produit(3 , "classeur" , 5.5)
   ];
+  */
+  tabProduits :Produit[] = [];
+
+  
+  constructor(public produitService : ProduitService) { 
+    //injection de dépendance
+  }
+
+  ngOnInit(): void {
+    this.produitService.getProduits$().subscribe(
+      {
+        next : (produits :Produit[])=> { this.tabProduits = produits; },
+        error : (err) => { console.log(err);}
+      }
+    )
+  }
 
   cloneObject(obj : object) :object{
    return JSON.parse(JSON.stringify(obj));
@@ -43,9 +62,5 @@ export class ProduitsComponent implements OnInit {
 
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
