@@ -8,3 +8,9 @@ res=<span class="enEvidence"
        [style.font-weight]="res>0?'bold':'normal'"
        [class.negatif]="res<0"
           >{{res}}</span>
+<hr>
+ <div class="c2" (mousemove)="onMouseMove($event)"
+     (mouseout)="onMouseLeave($event)">
+          Zone à survoler à la souris .<br>
+          x={{x}} , y={{y}}
+</div>         

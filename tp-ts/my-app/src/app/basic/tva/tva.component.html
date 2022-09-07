@@ -1,8 +1,16 @@
 <div class="fondVertClair">
     <p>calcul de tva</p>
-    <label>ht :</label> <input [(ngModel)]="ht" /> <br/>
-    <label>taux de tva (en %) :</label> <input [(ngModel)]="tauxTva" /> <br/>
+    <label>ht :</label> <input [(ngModel)]="ht" (input)="onCalculerTvaEtTtc()"  /> <br/>
+    <label>taux de tva (en %) :</label>  
+    <select [(ngModel)]="tauxTva" (change)="onCalculerTvaEtTtc()">
+        <option>0</option>
+        <option>5</option>
+        <option>10</option>
+        <option>20</option>
+    </select> <br/>
+    <!--
     <button (click)="onCalculerTvaEtTtc()" >calculer tva et ttc</button> <br/>
+    -->
     tva = <span [class.enEvidence]="tva>0">{{tva}}</span><br/>
     ttc = <span [class.enEvidence]="ttc>0">{{ttc}}</span><br/>
 </div>
