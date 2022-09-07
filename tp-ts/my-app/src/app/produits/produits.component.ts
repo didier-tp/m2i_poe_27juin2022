@@ -8,7 +8,8 @@ import { Produit } from '../common/produit';
 })
 export class ProduitsComponent implements OnInit {
 
-  produit : Produit = new Produit(); //produit selectionné ou bien nouveau produit
+  produit : Produit = new Produit(); //copie d'un produit selectionné ou bien nouveau produit à ajouter
+  prodSel : Produit | null = null; //référence vers un produit sélectionné
 
   //tableau des produits existants et à efficher:
   tabProduits :Produit[] = [
@@ -22,7 +23,7 @@ export class ProduitsComponent implements OnInit {
   }
 
   onSelectionnerProduit(p: Produit){
-    //this.produit = p;
+    this.prodSel = p;
     this.produit = <Produit> this.cloneObject(p);
   }
 
