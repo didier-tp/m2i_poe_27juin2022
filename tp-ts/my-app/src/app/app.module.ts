@@ -11,7 +11,7 @@ import { TvaComponent } from './basic/tva/tva.component';
 import { FormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProduitsComponent } from './produits/produits.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { ProduitsComponent } from './produits/produits.component';
   imports: [
     BrowserModule,
     AppRoutingModule , 
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
