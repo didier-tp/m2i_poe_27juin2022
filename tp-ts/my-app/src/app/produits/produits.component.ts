@@ -36,7 +36,9 @@ export class ProduitsComponent implements OnInit {
 
   onUpdateProduit(){
     if(this.prodSel != null){
-      this.prodSel = <Produit> this.cloneObject(this.produit); //à améliorer
+      this.prodSel.id = this.produit.id;
+      this.prodSel.label = this.produit.label;
+      this.prodSel.prix = this.produit.prix;
     }
 
   }
