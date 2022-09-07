@@ -5,3 +5,9 @@
     <td>{{p.id}}</td><td>{{p.label}}</td><td>{{p.prix}}</td>
   </tr>
 </table>
+
+<label>id:</label> <input type="number" [(ngModel)]="produit.id" /> <br/>
+<label>label:</label> <input type="text" [(ngModel)]="produit.label" /> <br/>
+<label>prix:</label> <input type="number" [(ngModel)]="produit.prix" /> <br/>
+
+<button (click)="onAjoutProduit()" >ajouter</button>
