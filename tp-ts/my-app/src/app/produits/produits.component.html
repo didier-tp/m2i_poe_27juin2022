@@ -2,7 +2,8 @@
 <table border="1">
   <tr><th>id</th><th>label</th><th>prix</th></tr>
   <tr *ngFor="let p of tabProduits"
-      (click)="onSelectionnerProduit(p)">
+      (click)="onSelectionnerProduit(p)"
+      [class.selected]="p==prodSel" >
     <td>{{p.id}}</td><td>{{p.label}}</td><td>{{p.prix}}</td>
   </tr>
 </table>
