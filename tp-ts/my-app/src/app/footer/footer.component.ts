@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PreferenceService } from '../common/preference.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public preferenceService : PreferenceService) { 
+    //injection de dépendance effectuée automatiquement 
+    //sur preferenceService
+  }
 
   ngOnInit(): void {
   }
