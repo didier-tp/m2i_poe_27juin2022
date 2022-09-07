@@ -21,6 +21,11 @@ export class ProduitsComponent implements OnInit {
    return JSON.parse(JSON.stringify(obj));
   }
 
+  onSelectionnerProduit(p: Produit){
+    //this.produit = p;
+    this.produit = <Produit> this.cloneObject(p);
+  }
+
   onAjoutProduit(){
     //this.tabProduits.push(this.produit);// v1 fonctionne pas bien , manque un clonage
     this.tabProduits.push(<Produit> this.cloneObject(this.produit));
