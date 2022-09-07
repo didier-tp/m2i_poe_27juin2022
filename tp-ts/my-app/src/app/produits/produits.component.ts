@@ -29,10 +29,12 @@ export class ProduitsComponent implements OnInit {
     //injection de dépendance
   }
 
+  //ngOnInit() est appelée automatiquement après le constructeur
+  //lorsque le composant est bien initialisé (à peu près équivalent à @PostConstruct de java)
   ngOnInit(): void {
     this.produitService.getProduits$().subscribe(
       {
-        next : (produits :Produit[])=> { this.tabProduits = produits; },
+        next : (produits :Produit[])=> { this.tabProduits = produits; } ,
         error : (err) => { console.log(err);}
       }
     )
