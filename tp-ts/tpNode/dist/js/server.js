@@ -14,22 +14,15 @@ const prod_api_1 = require("./prod-api");
 // pas de "type" : "module" dans  package.json
 // et "module": "CommonJS" dans le fichier tsconfig.json
 var app = (0, express_1.default)();
-/*
 // CORS enabled with express/node-js :
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     //ou avec "www.xyz.com" à la place de "*" en production
-
-    res.header("Access-Control-Allow-Methods",
-               "POST, GET, PUT, DELETE, OPTIONS");
-    //default: GET
-
-    res.header("Access-Control-Allow-Headers",
-               "Origin, X-Requested-With, Content-Type, Accept");
-
+    res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+    //default: GET 
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-*/
 //les routes en /html/... seront gérées par express par
 //de simples renvois des fichiers statiques du répertoire "./html"
 //app.use('/html', express.static(__dirname+"/html"));

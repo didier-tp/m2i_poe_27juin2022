@@ -13,7 +13,7 @@ import { prodApiRouter } from "./prod-api";
 
 
 var app = express();
-/*
+
 // CORS enabled with express/node-js :
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 
     next();
 });
-*/
+
 
 //les routes en /html/... seront gérées par express par
 //de simples renvois des fichiers statiques du répertoire "./html"

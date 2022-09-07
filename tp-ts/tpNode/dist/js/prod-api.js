@@ -50,7 +50,7 @@ exports.prodApiRouter.get('/api-prod/produit/:id', function (req, res, next) {
         //via async/await :
         try {
             //NB: le mot clef await ne peut être utilisé qu'à l'intérieur
-            //d'une fonction préfixée par le mot clef async (enn ligne 20)
+            //d'une fonction préfixée par le mot clef async (en ligne 20)
             let produit = yield prod_dao_1.default.get_produit_by_id_promise(idProd);
             res.send(produit);
         }
