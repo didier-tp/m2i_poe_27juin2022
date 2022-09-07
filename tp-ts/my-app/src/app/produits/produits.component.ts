@@ -17,8 +17,14 @@ export class ProduitsComponent implements OnInit {
     new Produit(3 , "classeur" , 5.5)
   ];
 
+  cloneObject(obj : object) :object{
+   return JSON.parse(JSON.stringify(obj));
+  }
+
   onAjoutProduit(){
-    this.tabProduits.push(this.produit);//v1 
+    //this.tabProduits.push(this.produit);// v1 fonctionne pas bien , manque un clonage
+    this.tabProduits.push(<Produit> this.cloneObject(this.produit));
+
   }
 
   constructor() { }
