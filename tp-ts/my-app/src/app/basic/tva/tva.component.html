@@ -3,10 +3,13 @@
     <label>ht :</label> <input [(ngModel)]="ht" (input)="onCalculerTvaEtTtc()"  /> <br/>
     <label>taux de tva (en %) :</label>  
     <select [(ngModel)]="tauxTva" (change)="onCalculerTvaEtTtc()">
+       <!-- 
         <option>0</option>
         <option>5</option>
         <option>10</option>
         <option>20</option>
+       -->
+       <option  *ngFor="let t of tauxPossibles">{{t}}</option>
     </select> <br/>
     <!--
     <button (click)="onCalculerTvaEtTtc()" >calculer tva et ttc</button> <br/>

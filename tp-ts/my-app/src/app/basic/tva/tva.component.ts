@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TvaComponent implements OnInit {
 
+  tauxPossibles : number[] = [ 0 , 5 , 10 , 15 , 20];
   ht :number = 0;
   tauxTva : number =0; //en % (0 , 10, 20)
   tva : number = 0;
