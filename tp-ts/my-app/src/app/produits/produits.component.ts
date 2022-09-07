@@ -11,6 +11,7 @@ export class ProduitsComponent implements OnInit {
   produit : Produit = new Produit(); //copie d'un produit selectionné ou bien nouveau produit à ajouter
   prodSel : Produit | null = null; //référence vers un produit sélectionné
 
+
   //tableau des produits existants et à efficher:
   tabProduits :Produit[] = [
     new Produit(1 , "cahier" , 3.5),
@@ -30,6 +31,13 @@ export class ProduitsComponent implements OnInit {
   onAjoutProduit(){
     //this.tabProduits.push(this.produit);// v1 fonctionne pas bien , manque un clonage
     this.tabProduits.push(<Produit> this.cloneObject(this.produit));
+    this.prodSel = null;
+  }
+
+  onUpdateProduit(){
+    if(this.prodSel != null){
+      this.prodSel = <Produit> this.cloneObject(this.produit); //à améliorer
+    }
 
   }
 
